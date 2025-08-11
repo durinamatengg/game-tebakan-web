@@ -1,0 +1,19 @@
+import streamlit as st
+import random  # <--- ini yang kurang
+
+st.title("🎯 Tebak Angka Rahasia!")
+
+if "angka_rahasia" not in st.session_state:
+    st.session_state.angka_rahasia = random.randint(1, 10)
+
+tebakan = st.number_input("Masukkan tebakkanmu:", min_value=1, max_value=10, step=1)
+
+if st.button("Tebak!"):
+    if tebakan == st.session_state.angka_rahasia:
+        st.success("🎉 Benar! Angka rahasianya adalah {}".format(st.session_state.angka_rahasia))
+    else:
+        st.error("❌ Salah! Coba lagi!")
+
+if st.button("Main Lagi"):
+    st.session_state.angka_rahasia = random.randint(1, 10)
+    st.experimental_rerun()
