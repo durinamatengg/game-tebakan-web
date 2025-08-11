@@ -1,5 +1,5 @@
 import streamlit as st
-
+import random
 st.title("🎯 Tebak Angka Rahasia!")
 st.write("Aku punya angka rahasia antara 1 - 10. Coba tebak!")
 
